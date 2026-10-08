@@ -1,0 +1,22 @@
+name: ci
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: install turbo (release)
+        run: npm i -g turbo@2.11.7
+      - name: dry run (executes no repository code)
+        run: turbo run build --dry
+        env:
+          TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+          TURBO_TELEMETRY_DISABLED: "1"
+      - name: regular build
+        run: turbo run build --force
+        env:
+          TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+          TURBO_TELEMETRY_DISABLED: "1"
