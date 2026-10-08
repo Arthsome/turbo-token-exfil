@@ -2,7 +2,7 @@ name: ci
 on: [push, pull_request, workflow_dispatch]
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, lab-poc]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
